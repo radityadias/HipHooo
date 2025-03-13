@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://68yh3apg44sc"]
+
+[ext_resource type="Script" path="res://scripts/Player/player.gd" id="1_3vvsw"]
+[ext_resource type="Texture2D" uid="uid://c1de7hn2ut3jf" path="res://assets/Sprites/oak_woods_v1.0/character/char_blue.png" id="1_ui51o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsyos"]
+atlas = ExtResource("1_ui51o")
+region = Rect2(0, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m07t"]
+atlas = ExtResource("1_ui51o")
+region = Rect2(56, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poln4"]
+atlas = ExtResource("1_ui51o")
+region = Rect2(112, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ulfw"]
+atlas = ExtResource("1_ui51o")
+region = Rect2(168, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwxhf"]
+atlas = ExtResource("1_ui51o")
+region = Rect2(224, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f8l1"]
+atlas = ExtResource("1_ui51o")
+region = Rect2(280, 0, 56, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twpt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsyos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m07t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poln4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ulfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwxhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f8l1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwfll"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_3vvsw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_twpt4")
+animation = &"idle"
+frame_progress = 0.0885126
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 13)
+shape = SubResource("CapsuleShape2D_rwfll")
